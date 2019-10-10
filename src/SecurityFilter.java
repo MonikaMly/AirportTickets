@@ -15,7 +15,15 @@ public class SecurityFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        filterChain.doFilter(req, resp);
+        String login = (String) req.getSession().getAttribute("login");
+        String requestUri = req.getRequestURI();
+
+        if (login != null || requestUri.endsWith("/login.html") || requestUri.endsWith("login") || requestUri.endsWith("register.html")
+                || requestUri.endsWith("register")){
+            filterChain.doFilter(req, resp);
+        } else {
+            resp.sendRedirect(resp.encodeRedirectURL("login.html"));
+        }
     }
 
     @Override

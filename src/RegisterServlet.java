@@ -5,22 +5,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/register")
+public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        String name = req.getParameter("name");
+        String surname = req.getParameter("surname");
+        String city = req.getParameter("city");
+        String birthYear = req.getParameter("birthYear");
+        int year = Integer.parseInt(birthYear);
 
-        for (User user : UserDAO.getAllUsers()) {
-            if (user.getLogin().equals(login)) {
-                if (user.getPassword().equals(password)) {
-                    req.getSession().setAttribute("login",login);
-                    resp.sendRedirect("homepage.html");
-                }
-            } else {
-                resp.getWriter().write("Wrong credencials");
-            }
-        }
+        User newUser = new User(login,password,name,surname,city,year);
+        UserDAO.registerUser(newUser);
+        resp.sendRedirect("login.html");
     }
 }
