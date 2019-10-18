@@ -7,14 +7,17 @@ public class DBConnection {
     public static final String DB_USERNAME = "root";
     public static final String DB_PASSWORD = "root";
 
-    public static Connection createConnection(){
+    public static Connection createConnection() {
+        Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-            return connection;
-        } catch (Exception e){
-            return null;
+            Class.forName("com.mysql.cj.jdbc.Driver"). newInstance();
+            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
         }
+        return connection;
     }
-}
+    }
+
 
