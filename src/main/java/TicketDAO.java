@@ -5,12 +5,12 @@ public class TicketDAO {
     private static List<Ticket> tickets = new ArrayList<Ticket>();
 
     static {
-        tickets.add(new Ticket(1,123, "login1"));
+        tickets.add(new Ticket(1,9, "Monika"));
     }
     public List<Ticket> getTickets(){
         return tickets;
     }
-    public void addTicket(Ticket ticket){
+    public void createTicket(Ticket ticket){
         tickets.add(ticket);
     }
 }
