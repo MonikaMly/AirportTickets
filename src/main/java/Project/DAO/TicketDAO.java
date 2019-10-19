@@ -17,4 +17,18 @@ public class TicketDAO {
     public static void createTicket(Ticket ticket){
         tickets.add(ticket);
     }
+    public static Ticket getTicketById (int id){
+
+        for (Ticket ticket : tickets) {
+            if (ticket.getId() == id){
+                return ticket;
+            }
+        }
+        return null;
+    }
+
+    public static void updateTicket(Ticket ticket){
+        TicketDAO.getTicketById(ticket.getId()).setFlightId(ticket.getFlightId());
+        TicketDAO.getTicketById(ticket.getId()).setUserLogin(ticket.getUserLogin());
+    }
 }

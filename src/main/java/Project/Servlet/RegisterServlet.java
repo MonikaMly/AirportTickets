@@ -21,9 +21,16 @@ public class RegisterServlet extends HttpServlet {
         String city = req.getParameter("city");
         String birthYear = req.getParameter("birthYear");
         int year = Integer.parseInt(birthYear);
+        String type = req.getParameter("type");
 
-        User newUser = new User(login,password,name,surname,city,year);
-        UserDAO.registerUser(newUser);
-        resp.sendRedirect("login.html");
+        if (type.equals("add")) {
+            User newUser = new User(login, password, name, surname, city, year);
+            UserDAO.registerUser(newUser);
+            resp.sendRedirect("login.html");
+        } else if (type.equals("update")){
+            User newUser = new User(login, password, name, surname, city, year);
+            UserDAO.updateUser(newUser);
+            resp.sendRedirect("userslist.jsp");
+        }
     }
 }

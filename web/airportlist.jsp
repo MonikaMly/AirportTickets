@@ -24,6 +24,7 @@
         <td><%=airport.getCode()%></td>
         <td><%=airport.getCity()%></td>
         <td><%=airport.getCountry()%></td>
+        <td> <a href="editAirport.jsp?code=<%=airport.getCode()%>">Edit</a></td>
     </tr>
 
     <% } %>

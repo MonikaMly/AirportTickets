@@ -24,6 +24,7 @@
         <td><%=ticket.getId()%></td>
         <td><%=ticket.getFlightId()%></td>
         <td><%=ticket.getUserLogin()%></td>
+        <td> <a href="editTicket.jsp?id=<%=ticket.getId()%>">Edit</a></td>
     </tr>
     <% } %>
 </table>

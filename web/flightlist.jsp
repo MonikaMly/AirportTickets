@@ -33,6 +33,7 @@
         <td><%=flight.getAirportToCode()%></td>
         <td><%=flight.getPrice()%></td>
         <td><%=flight.getTotalSeats()%></td>
+        <td> <a href="editflight.jsp?id=<%=flight.getId()%>">Edit</a></td>
     </tr>
 
 

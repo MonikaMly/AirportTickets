@@ -26,19 +26,30 @@ public class FlightServlet extends HttpServlet {
         String to = req.getParameter("to");
         double price = Double.parseDouble(req.getParameter("price"));
         int seats = Integer.parseInt(req.getParameter("seats"));
+        String type = req.getParameter("type");
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 
-        try {
-            Date departure = simpleDateFormat.parse(departureDate);
-            Date arrival = simpleDateFormat.parse(arrivalDate);
+        if (type.equals("add")) {
+            try {
+                Date departure = simpleDateFormat.parse(departureDate);
+                Date arrival = simpleDateFormat.parse(arrivalDate);
 
-            Flight flight = new Flight(idToAdd,departure,arrival,from,to,price,seats);
-            FlightDAO.addFlight(flight);
-        } catch (ParseException e) {
-            e.printStackTrace();
+                Flight flight = new Flight(idToAdd, departure, arrival, from, to, price, seats);
+                FlightDAO.addFlight(flight);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("update")){
+            try {
+                Date departure = simpleDateFormat.parse(departureDate);
+                Date arrival = simpleDateFormat.parse(arrivalDate);
+
+                Flight flight = new Flight(idToAdd, departure, arrival, from, to, price, seats);
+                FlightDAO.updateFlight(flight);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
-
-
     }
 }

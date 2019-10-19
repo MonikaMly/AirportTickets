@@ -17,8 +17,18 @@ public class AirportServlet extends HttpServlet {
         String code = req.getParameter("code");
         String city = req.getParameter("city");
         String country = req.getParameter("country");
+        String type = req.getParameter("type");
 
-        Airport airport = new Airport(code,city,country);
-        AirportDAO.addAirport(airport);
+        if(type.equals("add")) {
+            Airport airport = new Airport(code, city, country);
+            AirportDAO.addAirport(airport);
+            resp.sendRedirect("airportlist.jsp");
+        } else if(type.equals("update")){
+            Airport airport = new Airport(code, city,country);
+            AirportDAO.updateAirport(airport);
+            resp.sendRedirect("airportlist.jsp");
+        } else {
+            resp.sendRedirect("airportlist.jsp");
+        }
     }
 }

@@ -12,6 +12,7 @@
 </head>
 <body>
 <form method="post" action="flight">
+    <input type="hidden" name="type" value="add">
     Id:
     <input name="id" type="number">
     <br/>

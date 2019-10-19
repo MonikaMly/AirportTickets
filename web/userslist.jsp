@@ -32,6 +32,7 @@
         <td><%=user.getSurname()%></td>
         <td><%=user.getCity()%></td>
         <td><%=user.getBirthYear()%></td>
+        <td> <a href="edituser.jsp?login=<%=user.getLogin()%>">Edit</a></td>
     </tr>
     <%}%>
 

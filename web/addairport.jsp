@@ -12,6 +12,7 @@
 </head>
 <body>
 <form method="post" action="airport">
+    <input type="hidden" name="type" value="add">
     Code:
     <input name="code" type="text">
     <br/>

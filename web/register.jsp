@@ -12,6 +12,7 @@
 </head>
 <body>
 <form method="post" action="register">
+    <input type="hidden" name="type" value="add">
     Login:
     <input name="login" type="text">
     <br/>

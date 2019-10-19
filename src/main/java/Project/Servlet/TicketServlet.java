@@ -17,9 +17,15 @@ public class TicketServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         int flightId = Integer.parseInt(req.getParameter("flightId"));
         String userLogin = req.getParameter("userLogin");
+        String type = req.getParameter("type");
 
-        Ticket ticket = new Ticket(id,flightId,userLogin);
+        if(type.equals("add")) {
+            Ticket ticket = new Ticket(id, flightId, userLogin);
 
-        TicketDAO.createTicket(ticket);
+            TicketDAO.createTicket(ticket);
+        } else if (type.equals("update")){
+            Ticket ticket = new Ticket(id, flightId, userLogin);
+            TicketDAO.updateTicket(ticket);
+        }
     }
 }

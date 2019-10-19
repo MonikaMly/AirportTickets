@@ -38,10 +38,8 @@ public class AirportDAO {
             }
         }
     }
-    public void createAirpot (Airport airport){
-        airports.add(airport);
-    }
-    public void updateAirport(Airport airport){
+
+    public static void updateAirport(Airport airport){
        AirportDAO.getAirportByCode(airport.getCode()).setCity(airport.getCity());
        AirportDAO.getAirportByCode(airport.getCode()).setCountry(airport.getCountry());
     }
