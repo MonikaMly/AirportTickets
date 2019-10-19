@@ -1,3 +1,5 @@
+package Project.Model;
+
 import java.util.Objects;
 
 public class User {
@@ -88,7 +90,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Project.Model.User{" +
                 "login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +

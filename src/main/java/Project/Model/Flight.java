@@ -1,3 +1,5 @@
+package Project.Model;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -97,7 +99,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
+        return "Project.Model.Flight{" +
                 "id=" + id +
                 ", departureDate=" + departureDate +
                 ", arrivalDate=" + arrivalDate +

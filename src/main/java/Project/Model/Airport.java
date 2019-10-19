@@ -1,3 +1,5 @@
+package Project.Model;
+
 import java.util.Objects;
 
 public class Airport {
@@ -55,7 +57,7 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "Airport{" +
+        return "Project.Model.Airport{" +
                 "code='" + code + '\'' +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +

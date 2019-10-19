@@ -1,3 +1,7 @@
+package Project.DAO;
+
+import Project.Model.Flight;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

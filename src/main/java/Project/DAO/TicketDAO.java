@@ -1,3 +1,7 @@
+package Project.DAO;
+
+import Project.Model.Ticket;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +11,10 @@ public class TicketDAO {
     static {
         tickets.add(new Ticket(1,9, "Monika"));
     }
-    public List<Ticket> getTickets(){
+    public static List<Ticket> getTickets(){
         return tickets;
     }
-    public void createTicket(Ticket ticket){
+    public static void createTicket(Ticket ticket){
         tickets.add(ticket);
     }
 }

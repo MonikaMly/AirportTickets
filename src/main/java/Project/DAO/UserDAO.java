@@ -1,10 +1,7 @@
-import com.sun.istack.internal.NotNull;
+package Project.DAO;
 
-import javax.jws.soap.SOAPBinding;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import Project.Model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 

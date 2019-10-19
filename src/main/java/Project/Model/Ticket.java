@@ -1,3 +1,5 @@
+package Project.Model;
+
 import java.util.Objects;
 
 public class Ticket {
@@ -55,7 +57,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "Project.Model.Ticket{" +
                 "id=" + id +
                 ", flightId=" + flightId +
                 ", userLogin='" + userLogin + '\'' +

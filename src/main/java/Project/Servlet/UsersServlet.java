@@ -1,4 +1,7 @@
-import javax.servlet.ServletException;
+package Project.Servlet;
+
+import Project.DAO.UserDAO;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

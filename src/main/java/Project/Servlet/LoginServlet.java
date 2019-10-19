@@ -1,4 +1,7 @@
-import javax.ejb.EJB;
+package Project.Servlet;
+
+import Project.DAO.UserDAO;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
