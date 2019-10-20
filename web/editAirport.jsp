@@ -6,7 +6,7 @@
 <head>
     <title>Add Airport</title>
 </head>
-<body id="page-top">
+<body>
 
         <%
             String code = request.getParameter("code");
@@ -16,11 +16,12 @@
 
         <form action="airport" method="post">
             <input type="hidden" name="type" value="update">
+            Code:
             <input name="code" value="<%=airport.getCode()%>">
-                City:
-                <input type="text" placeholder="Enter airport city" name="city" required value="<%=airport.getCity()%>">
-                Country:
-                <input type="text" placeholder="Enter country" name="country" required value="<%=airport.getCountry()%>">
+            City:
+            <input type="text" name="city" required value="<%=airport.getCity()%>">
+            Country:
+            <input type="text" name="country" required value="<%=airport.getCountry()%>">
             <input type="submit" value="Update">
         </form>
 </body>

@@ -40,6 +40,7 @@ public class FlightServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            resp.sendRedirect("flightlist.jsp");
         } else if (type.equals("update")){
             try {
                 Date departure = simpleDateFormat.parse(departureDate);
@@ -50,6 +51,7 @@ public class FlightServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            resp.sendRedirect("flightlist.jsp");
         }
     }
 }

@@ -17,7 +17,7 @@
     <input name="code" type="text">
     <br/>
     City:
-    <input name="city" type="password">
+    <input name="city" type="text">
     <br/>
     Country:
     <input name="country" type="text">

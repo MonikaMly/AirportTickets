@@ -25,9 +25,9 @@
     <input type="hidden" name="type" value="update">
     <input name="id" value="<%=flight.getId()%>">
     Departure Date:
-    <input type="date" placeholder="Enter departurw Date" name="departureDate" required value="<%=flight.getDepartureDate()%>">
+    <input type="date" name="departureDate" required value="<%=flight.getDepartureDate()%>">
     Arrival Date:
-    <input type="dare" placeholder="Enter departurw Date" name="departureDate" required value="<%=flight.getDepartureDate()%>">
+    <input type="dare" name="departureDate" required value="<%=flight.getDepartureDate()%>">
     From:
     <select name="from">
         <%

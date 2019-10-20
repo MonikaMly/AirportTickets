@@ -15,9 +15,7 @@
 </head>
 <body>
 <form method="post" action="ticket">
-    <input type="hidden" name="type" value="update">
-    Id:
-    <input name="Id" type="number">
+    <input type="hidden" name="type" value="add">
     <br/>
     Flight Id:
     <select name="flightId">
