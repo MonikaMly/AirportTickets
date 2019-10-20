@@ -11,14 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-    private static List<User> users = new ArrayList<User>();
-
-    static {
-        users.add(new User("Monika", "Monika", "Monika", "Monika", "Wrocław", 1234));
-        users.add(new User("Monika2", "Monika", "Monika", "Monika", "Wrocław", 5678));
-        users.add(new User("Monika3", "Monika", "Monika", "Monika", "Wrocław", 4321));
-        users.add(new User("Monika4", "Monika", "Monika", "Monika", "Wrocław", 8765));
-    }
 
     public static List<User> getAllUsers() {
         Connection connection = DBConnection.createConnection();
