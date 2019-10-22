@@ -17,9 +17,24 @@ import java.util.Date;
 @WebServlet("/flight")
 public class FlightServlet extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String type = req.getParameter("type");
+
+        if (type.equals("delete")){
+            FlightDAO.removeById(id);
+            resp.sendRedirect("flightlist.jsp");
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        int idToAdd = Integer.parseInt(id);
+        int idToAdd = 0;
+
+        if(id != null){
+            idToAdd = Integer.parseInt(id);
+        }
         String departureDate = req.getParameter("departureDate");
         String arrivalDate = req.getParameter("arrivalDate");
         String from = req.getParameter("from");
@@ -30,28 +45,22 @@ public class FlightServlet extends HttpServlet {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 
-        if (type.equals("add")) {
             try {
                 Date departure = simpleDateFormat.parse(departureDate);
                 Date arrival = simpleDateFormat.parse(arrivalDate);
 
                 Flight flight = new Flight(idToAdd, departure, arrival, from, to, price, seats);
-                FlightDAO.addFlight(flight);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            resp.sendRedirect("flightlist.jsp");
-        } else if (type.equals("update")){
-            try {
-                Date departure = simpleDateFormat.parse(departureDate);
-                Date arrival = simpleDateFormat.parse(arrivalDate);
 
-                Flight flight = new Flight(idToAdd, departure, arrival, from, to, price, seats);
-                FlightDAO.updateFlight(flight);
+                if (type.equals("add")) {
+                    FlightDAO.addFlight(flight);
+                    resp.sendRedirect("flightlist.jsp");
+                } else if (type.equals("update")) {
+                    FlightDAO.updateFlight(flight);
+                    resp.sendRedirect("flightlist.jsp");
+
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            resp.sendRedirect("flightlist.jsp");
-        }
     }
 }

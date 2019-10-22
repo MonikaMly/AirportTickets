@@ -2,7 +2,9 @@ package Project.Servlet;
 
 import Project.Model.User;
 import Project.DAO.UserDAO;
+import Project.Service.UserService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,17 @@ import java.io.IOException;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("login");
+        String type = req.getParameter("type");
+
+        if (type.equals("delete")){
+            UserDAO.deleteById(login);
+            resp.sendRedirect("userslist.jsp");
+        }
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");

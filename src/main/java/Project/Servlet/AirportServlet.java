@@ -13,6 +13,17 @@ import java.io.IOException;
 @WebServlet("/airport")
 public class AirportServlet extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String code = req.getParameter("code");
+        String type = req.getParameter("type");
+
+        if (type.equals("delete")){
+            AirportDAO.deleteByCode(code);
+            resp.sendRedirect("airportlist.jsp");
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
         String city = req.getParameter("city");

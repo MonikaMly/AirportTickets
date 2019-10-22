@@ -3,13 +3,14 @@ package Project.DAO;
 import Project.Config.DBConnection;
 import Project.Model.User;
 
+import javax.ejb.Stateless;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+@Stateless
 public class UserDAO {
 
     public static List<User> getAllUsers() {

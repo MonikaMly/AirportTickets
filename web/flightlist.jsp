@@ -1,5 +1,6 @@
 <%@ page import="Project.DAO.FlightDAO" %>
-<%@ page import="Project.Model.Flight" %><%--
+<%@ page import="Project.Model.Flight" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Huawei
   Date: 19.10.2019
@@ -23,7 +24,8 @@
         <th>Seats</th>
     </tr>
     <%
-        for (Flight flight : FlightDAO.getFlights()) { %>
+        List<Flight> flightList = FlightDAO.getFlights();
+        for (Flight flight : flightList) { %>
 
     <tr>
         <td><%=flight.getId()%></td>
@@ -34,9 +36,8 @@
         <td><%=flight.getPrice()%></td>
         <td><%=flight.getTotalSeats()%></td>
         <td> <a href="editflight.jsp?id=<%=flight.getId()%>">Edit</a></td>
+        <td> <a href="flight?id=<%=flight.getId()%>&type=delete">Delete</a></td>
     </tr>
-
-
 
     <%    } %>
 

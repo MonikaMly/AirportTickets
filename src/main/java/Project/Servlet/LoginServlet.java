@@ -1,7 +1,9 @@
 package Project.Servlet;
 
 import Project.DAO.UserDAO;
+import Project.Service.UserService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

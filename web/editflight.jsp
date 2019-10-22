@@ -1,7 +1,9 @@
 <%@ page import="Project.Model.Flight" %>
 <%@ page import="Project.DAO.FlightDAO" %>
 <%@ page import="Project.Model.Airport" %>
-<%@ page import="Project.DAO.AirportDAO" %><%--
+<%@ page import="Project.DAO.AirportDAO" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Huawei
   Date: 20.10.2019
@@ -15,8 +17,9 @@
 </head>
 <body>
 <%
-    int id = Integer.parseInt(request.getParameter("id"));
-    Flight flight = FlightDAO.getFlightById(id);
+    String id = request.getParameter("id");
+    Flight flight = FlightDAO.getFlightById(Integer.parseInt(id));
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 %>
 
 <h1>Update TICKET <b><%=flight.getId()%></b></h1>
@@ -25,21 +28,24 @@
     <input type="hidden" name="type" value="update">
     <input name="id" value="<%=flight.getId()%>">
     Departure Date:
-    <input type="date" name="departureDate" required value="<%=flight.getDepartureDate()%>">
+    <input type="date" name="departuredate" required value="<%=dateFormatter.format(flight.getDepartureDate())%>">
     Arrival Date:
-    <input type="dare" name="departureDate" required value="<%=flight.getDepartureDate()%>">
+    <input type="date" name="arrivaldate" required value="<%=dateFormatter.format(flight.getDepartureDate())%>">
+
+    <%List<Airport> airports = AirportDAO.getAirports(); %>
+
     From:
-    <select name="from">
+    <select name="airportfrom">
         <%
-            for (Airport airport : AirportDAO.getAirports()) {
+            for (Airport airport : airports) {
         %>
         <option value="<%=airport.getCode()%>"><%=airport.getCode()%></option>
         <%   } %>
     </select>
     To:
-    <select name="to">
+    <select name="airportto">
         <%
-            for (Airport airport : AirportDAO.getAirports()) {
+            for (Airport airport : airports) {
         %>
         <option value="<%=airport.getCode()%>"><%=airport.getCode()%></option>
         <%   } %>

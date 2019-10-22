@@ -6,11 +6,12 @@ import Project.Model.Ticket;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class TicketDAO {
 
-    public static int getTickets(int flightId){
+    public static int getTicketsForFlight(int flightId){
         try {
             PreparedStatement ps = DBConnection.createConnection()
                     .prepareStatement("SELECT count(*) as ticketsNumber FROM airport.ticket WHERE flightid = ?");

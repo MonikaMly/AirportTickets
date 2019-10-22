@@ -15,7 +15,6 @@ public class TicketServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        int idToAdd = Integer.valueOf(id);
         int newId = (int) (Math.random() * 1000000);
         String flightId = req.getParameter("flightId");
         int flightIdToAdd = Integer.parseInt(flightId);
@@ -25,10 +24,6 @@ public class TicketServlet extends HttpServlet {
         if(type.equals("add")) {
             Ticket ticket = new Ticket(newId, flightIdToAdd, userLogin);
             TicketDAO.createTicket(ticket);
-            resp.sendRedirect("ticketlist.jsp");
-        } else if (type.equals("update")){
-            Ticket ticket = new Ticket(idToAdd, flightIdToAdd, userLogin);
-            TicketDAO.updateTicket(ticket);
             resp.sendRedirect("ticketlist.jsp");
         }
     }

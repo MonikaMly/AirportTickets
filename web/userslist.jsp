@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Project.DAO.UserDAO" %>
-<%@ page import="Project.Model.User" %><%--
+<%@ page import="Project.Model.User" %>
+<%@ page import="Project.Service.UserService" %><%--
   Created by IntelliJ IDEA.
   Project.Model.User: Huawei
   Date: 19.10.2019
@@ -11,6 +12,8 @@
 <html>
 <head>
     <title>Users List</title>
+
+    <link rel="stylesheet"  href="CSS/styles.css" type="text/css" >
 </head>
 <body>
 <table>
@@ -22,9 +25,10 @@
     <th>Birth Year</th>
     </tr>
     <%
-        List<User> users = UserDAO.getAllUsers();
-        for (User user : users) {
-         %>
+        List<User> allUsers = UserDAO.getAllUsers();
+        for (User user : allUsers) {
+
+    %>
 
     <tr>
         <td><%=user.getLogin()%></td>
@@ -33,6 +37,7 @@
         <td><%=user.getCity()%></td>
         <td><%=user.getBirthYear()%></td>
         <td> <a href="edituser.jsp?login=<%=user.getLogin()%>">Edit</a></td>
+        <td> <a href="register?login=<%=user.getLogin()%>&type=delete">Delete</a></td>
     </tr>
     <%}%>
 

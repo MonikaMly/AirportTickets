@@ -14,17 +14,17 @@ import java.util.List;
 public class FlightDAO {
 
     public static List<Flight> getFlights(){
-        List<Flight> flights = new ArrayList<>();
         Connection connection = DBConnection.createConnection();
+        List<Flight> flights = new ArrayList<>();
 
         try {
-            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM airport.flight;");
+            ResultSet rs = connection.createStatement().executeQuery("SELECT * FROM flight;");
             while (rs.next()){
                 int id = rs.getInt("id");
-                java.util.Date departureDate = rs.getDate("departureDate");
-                java.util.Date arrivalDate = rs.getDate("arrivalDate");
-                String from = rs.getString("from");
-                String to = rs.getString("to");
+                java.util.Date departureDate = rs.getDate("departuredate");
+                java.util.Date arrivalDate = rs.getDate("arrivaldate");
+                String from = rs.getString("airportfrom");
+                String to = rs.getString("airportto");
                 double price = rs.getDouble("price");
                 int seats = rs.getInt("seats");
 
@@ -34,8 +34,6 @@ public class FlightDAO {
                 Flight flight = new Flight(id,departure,arrival,from,to,price,seats);
                 flights.add(flight);
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,10 +65,10 @@ public class FlightDAO {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                java.sql.Date departureDate = rs.getDate("departureDate");
-                java.sql.Date arrivalDate = rs.getDate("arrivalDate");
-                String airportFromCode = rs.getString("from");
-                String airportToCode = rs.getString("to");
+                java.sql.Date departureDate = rs.getDate("departuredate");
+                java.sql.Date arrivalDate = rs.getDate("arrivaldate");
+                String airportFromCode = rs.getString("airportfrom");
+                String airportToCode = rs.getString("airportto");
                 double price = rs.getDouble("price");
                 int totalSeats = rs.getInt("seats");
 

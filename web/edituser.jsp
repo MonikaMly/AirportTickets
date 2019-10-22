@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Edit User</title>
+
 </head>
 <body>
 <%
@@ -21,16 +22,22 @@
 <form action="register" method="post">
     <input type="hidden" name="type" value="update">
     <input name="login" value="<%=user.getLogin()%>">
+</br>
     Password:
     <input type="password" placeholder="Enter password" name="password" required value="<%=user.getPassword()%>">
+    </br>
     Name:
     <input type="text" placeholder="Enter name" name="name" required value="<%=user.getName()%>">
+    </br>
     Surname:
     <input type="text" placeholder="Enter surname" name="surname" required value="<%=user.getSurname()%>">
+    </br>
     City:
     <input type="text" placeholder="Enter city" name="city" required value="<%=user.getCity()%>">
+    </br>
     Birth Year:
     <input type="number" placeholder="Enter year" name="birthYear" required value="<%=user.getBirthYear()%>">
+    </br>
     <input type="submit" value="Update">
 </form>
 </body>
